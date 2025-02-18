@@ -1,10 +1,12 @@
+import { Car } from "@/types";
+
 export async function fetchCars() {
     try {
       const headers = {
         'x-rapidapi-key': '8bbbabeeb9mshe5125d7bd665103p132c95jsn0a6912a90563',
         'x-rapidapi-host': 'cars-by-api-ninjas.p.rapidapi.com'
       }
-      const response = await fetch('https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla', { headers });
+      const response = await fetch('https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=carrera', { headers });
       const result = await response.json()
       return result
     }
@@ -14,6 +16,7 @@ export async function fetchCars() {
     }
 }
 
+// Magic random number
 export const calculateCarRent = (city_mpg: number, year: number) => {
   const basePricePerDay = 50; // Base rental price per day in dollars
   const mileageFactor = 0.1; // Additional rate per mile driven
@@ -28,3 +31,7 @@ export const calculateCarRent = (city_mpg: number, year: number) => {
 
   return rentalRatePerDay.toFixed(0);
 };
+
+export const generateCarImageUrl = (car: Car, angle?: string) => {
+  
+}
